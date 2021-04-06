@@ -1,0 +1,32 @@
+/*
+Fonts:
+Press Start 2P
+Quicksand
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #4b4b4f;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+  font-family: 'Press Start 2P', sans-serif;
+}
+
+.main {
+  position: relative;
+  margin: 0 auto;
+  top: 100px;
+  padding: 50px;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  background-color: #f71c1c;
+  border: 4px solid #000;
+  box-shadow: 10px 10px #fff;
+}
