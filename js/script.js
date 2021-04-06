@@ -1,3 +1,4 @@
+//Provides array of pokemon
 let pokemonList = [
   { name : 'Charmander',
     height : 0.6,
@@ -26,6 +27,11 @@ let pokemonList = [
   }
 ];
 
+//Uses loop to write pokemon and height
 for (var i = 0; i < pokemonList.length; i++) {
-  document.write(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ')<br>')
+  if (pokemonList[i].height > 0.6) {
+      document.write(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ' - Wow, that\'s big!)<br>')
+  }  else {
+    document.write(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ')<br>')
+  }
 }
