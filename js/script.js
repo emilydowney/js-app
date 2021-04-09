@@ -32,8 +32,9 @@ let pokemonRepository = (function() {
   }
 
   function add(pokemon) {
+    if (typeof pokemon === 'object' && Object.keys(pokemon) === ['name', 'height', 'type', 'abilities']) {
     pokemonList.push(pokemon);
-  }
+  }};
 
   return {
     getAll: getAll,
