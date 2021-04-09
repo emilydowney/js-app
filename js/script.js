@@ -1,5 +1,6 @@
 //Provides array of pokemon
-let pokemonList = [
+let pokemonRepository = (function() {
+  let pokemonList = [
   { name : 'Charmander',
     height : 0.6,
     type : 'fire',
@@ -24,14 +25,27 @@ let pokemonList = [
     height : 0.5,
     type : ['fairy', 'normal'],
     abilities : ['cute-charm', 'friend-guard']
-  }
-];
+  }];
 
-//Uses loop to write pokemon and height
-for (var i = 0; i < pokemonList.length; i++) {
-  if (pokemonList[i].height > 0.6) {
-      document.write(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ' - Wow, that\'s big!)<br>')
-  }  else {
-    document.write(pokemonList[i].name + ' (Height: ' + pokemonList[i].height + ')<br>')
+  function getAll() {
+    return pokemonList;
   }
-}
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  return {
+    getAll: getAll,
+    add: add
+  };
+})();
+
+//Uses forEach to write pokemon and height
+pokemonRepository.getAll().forEach(function(pokemonList) {
+  if (pokemonList.height > 0.6) {
+    document.write(pokemonList.name + ' (Height: ' + pokemonList.height + ' - Wow, that\'s big!)<br>')
+  } else {
+    document.write(pokemonList.name + ' (Height: ' + pokemonList.height + ')<br>')
+  }
+});
