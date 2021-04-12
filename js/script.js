@@ -55,7 +55,7 @@ let pokemonRepository = (function() {
   };
 })();
 
-//Uses forEach to write pokemon and height
+//Uses forEach to write pokemon
 pokemonRepository.getAll().forEach(function(pokemon) {
   pokemonRepository.addListItem(pokemon);
 });

@@ -50,19 +50,44 @@ h1 {
   position: relative;
   display: block;
   margin: 0 auto;
-  padding: 50px;
   width: 500px;
   height: 400px;
   text-align: center;
   background-color: var(--white);
-  color: var(--primary_color);
+  color: #000;
   border: 2px solid #000;
   box-shadow: 10px 10px var(--secondary_color);
   font-size: 20px;
 }
 
-.primary-button {
-  
+p {
+  margin: 15px;
+}
+
+hr {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.primary-button, .primary-button:visited {
+  background: var(--white);
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+}
+
+.primary-button:focus, .primary-button:hover, .primary-button:active {
+  background: var(--secondary_color);
+  color: var(--white);
+  cursor: pointer;
+  outline: none;
 }
 
 /* Media queries */
