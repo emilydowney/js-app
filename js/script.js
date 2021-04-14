@@ -26,19 +26,24 @@ let pokemonRepository = (function() {
     type : ['fairy', 'normal'],
     abilities : ['cute-charm', 'friend-guard']
   }];
-
+  //Function to add additional pokemon to array
   function add(pokemon) {
     if (typeof pokemon === 'object' && Object.keys(pokemonList[0]).every((key) => key in pokemon)) {
     pokemonList.push(pokemon);
   } else {
       console.log('error')
   }};
-
+  //Returns list of pokemon
   function getAll() {
     return pokemonList;
     }
+  //Function to log pokemon name to console
+  function showDetails(pokemon) {
+    console.log(pokemon.name);
+    }
 
   function addListItem(pokemon) {
+    //Creates buttons for each pokemon
     let list = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
     let button = document.createElement('button');
@@ -46,6 +51,10 @@ let pokemonRepository = (function() {
     button.classList.add('primary-button');
     listItem.appendChild(button);
     list.appendChild(listItem);
+    //Log pokemon to console upon click
+    button.addEventListener('click', function() {
+      showDetails(pokemon);
+    });
   }
 
   return {

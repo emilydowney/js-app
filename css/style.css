@@ -7,12 +7,14 @@ Colors:
 Background (grey): #33363a
 Content (red): #d60909
 White: #fff
+Black: #000;
 */
 
 :root {
   --primary_color: #33363a;
   --secondary_color: #d60909;
   --white: #fff;
+  --black: #000;
 }
 
 * {
@@ -25,6 +27,7 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+/* Header content */
 header {
   display: flex;
   position: relative;
@@ -46,6 +49,7 @@ h1 {
   font-size: 36px;
 }
 
+/* Main body content */
 .main {
   position: relative;
   display: block;
@@ -54,8 +58,8 @@ h1 {
   height: 400px;
   text-align: center;
   background-color: var(--white);
-  color: #000;
-  border: 2px solid #000;
+  color: var(--black);
+  border: 2px solid var(--black);
   box-shadow: 10px 10px var(--secondary_color);
   font-size: 20px;
 }
