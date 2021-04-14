@@ -101,3 +101,16 @@ ul {
     width: 100%;
   }
 }
+
+@media all and (max-width: 400px){
+  .logo {
+    height: 50px;
+    width: 50px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  .main {
+    box-shadow: none;
+  }
+}
