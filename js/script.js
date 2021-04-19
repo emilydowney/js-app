@@ -31,11 +31,23 @@ let pokemonRepository = (function() {
       showDetails(pokemon);
     })
   };
+
+  //Functions to show & hide loading message
+  function showLoadingMessage(element){
+    element.classList.remove('element')
+    };
+  function hideLoadingMessage(element){
+    element.classList.add('element')
+    };
+
   //Fetch and compile list of pokemon
   function loadList() {
+    let message = document.querySelector('.message')
+    showLoadingMessage(message);
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
+      hideLoadingMessage(message);
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -48,12 +60,16 @@ let pokemonRepository = (function() {
       console.error(e);
     })
   };
+
   //Gets details from each pokemon url
   function loadDetails(item) {
+    let message = document.querySelector('.message')
+    showLoadingMessage(message);
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
+      hideLoadingMessage(message);
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
@@ -61,12 +77,14 @@ let pokemonRepository = (function() {
       console.error(e);
     })
   };
+
   //Logs pokemon details to console
   function showDetails(item) {
     loadDetails(item).then(function() {
       console.log(item)
     })
   };
+  
   //Function returns
   return {
     add: add,

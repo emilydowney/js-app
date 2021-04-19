@@ -64,6 +64,10 @@ h1 {
   font-size: 20px;
 }
 
+.message {
+  display: none;
+}
+
 p {
   margin: 15px;
 }
