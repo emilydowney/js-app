@@ -65,7 +65,7 @@ h1 {
 }
 
 .message {
-  display: none;
+  font-style: italic;
 }
 
 p {
