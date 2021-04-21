@@ -51,6 +51,7 @@ h1 {
 
 h2 {
   text-transform: capitalize;
+  text-align: center;
 }
 
 /* Main body content */
@@ -104,6 +105,8 @@ ul {
   outline: none;
 }
 
+/* Modal design */
+
 #modal-container {
   position: fixed;
   padding: 20px;
@@ -134,14 +137,23 @@ ul {
   text-align: center;
 }
 
+.id {
+  display: inline-block;
+  float: left;
+  font-size: 18px;
+}
+
 .modal-close {
   float: right;
   -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: #777;
-  text-decoration: underline;
+  border: 1px solid var(--black);
+  background: var(--secondary_color);
+  color: var(--white);
   cursor: pointer;
+}
+
+.modal-close:hover {
+  box-shadow: 1px 1px var(--black)
 }
 
 /* Media queries */
