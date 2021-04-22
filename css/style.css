@@ -52,6 +52,8 @@ h1 {
 h2 {
   text-transform: capitalize;
   text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--primary_color);
 }
 
 /* Main body content */
@@ -69,8 +71,11 @@ h2 {
   font-size: 20px;
 }
 
-.message {
+#message {
   font-style: italic;
+}
+
+#message.remove {
   display: none;
 }
 
@@ -133,7 +138,7 @@ ul {
   background: #fff;
   padding: 15px;
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   text-align: center;
 }
 

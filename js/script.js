@@ -31,12 +31,26 @@ let pokemonRepository = (function() {
       showDetails(pokemon);
     })
   };
+  //Functions for loading message
+  function loadMessage() {
+    let message = document.querySelector('#message');
+    let loadMessage = document.createElement('p');
+    loadMessage.innerText = 'Information loading...'
 
+    message.appendChild(loadMessage);
+  }
+
+  function removeMessage() {
+    let message = document.querySelector('#message');
+    message.classList.add('remove');
+  }
   //Fetch and compile list of pokemon
   function loadList() {
+    loadMessage();
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
+      removeMessage();
       json.results.forEach(function (item) {
         let pokemon = {
           name: item.name,
@@ -52,10 +66,12 @@ let pokemonRepository = (function() {
 
   //Gets details from each pokemon url
   function loadDetails(item) {
+    loadMessage();
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
+      removeMessage();
       item.id = details.id;
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
