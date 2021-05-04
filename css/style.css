@@ -11,7 +11,7 @@ Black: #000;
 */
 
 :root {
-  --primary_color: #33363a;
+  --primary_color: #343a40;
   --secondary_color: #d60909;
   --white: #fff;
   --black: #000;
@@ -28,7 +28,7 @@ body {
 }
 
 /* Header content */
-header {
+.title {
   display: flex;
   position: relative;
   justify-content: center;
