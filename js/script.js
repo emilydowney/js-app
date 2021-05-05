@@ -81,7 +81,6 @@ let pokemonRepository = (function() {
       console.error(e);
     })
   };
-
   //Generates pokemon details in modal
   function showModal(item) {
     loadDetails(item).then(function() {
