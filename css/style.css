@@ -44,9 +44,6 @@ h1 {
 
 h2 {
   text-transform: capitalize;
-  text-align: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--primary_color);
 }
 
 /* Main body content */
@@ -54,14 +51,18 @@ h2 {
   position: relative;
   display: block;
   margin: 0 auto;
-  width: 500px;
-  height: 100%;
+  width: 600px;
   text-align: center;
   background-color: var(--white);
   color: var(--black);
   border: 2px solid var(--black);
   box-shadow: 10px 10px var(--secondary_color);
   font-size: 20px;
+}
+
+.pokemon-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 #message {
@@ -86,7 +87,7 @@ ul {
   margin: 0;
 }
 
-.primary-button, .primary-button:visited {
+.main-button, .main-button:visited {
   background: var(--white);
   font-family: 'Quicksand', sans-serif;
   font-size: 20px;
@@ -96,41 +97,11 @@ ul {
   border: none;
 }
 
-.primary-button:focus, .primary-button:hover, .primary-button:active {
+.main-button:focus, .main-button:hover, .main-button:active {
   background: var(--secondary_color);
   color: var(--white);
   cursor: pointer;
   outline: none;
-}
-
-/* Modal design */
-#modal-container{
-  display: none;
-}
-
-#modal-container.is-visible {
-  display: block;
-}
-
-#exampleModal {
-  margin: 0 auto;
-}
-
-.modal {
-  margin: auto;
-  display: inline-block;
-  box-sizing: border-box;
-  background: #fff;
-  padding: 15px;
-  width: 100%;
-  max-width: 600px;
-  text-align: center;
-}
-
-.id {
-  display: inline-block;
-  float: left;
-  font-size: 18px;
 }
 
 .remove {
@@ -139,7 +110,7 @@ ul {
 
 /* Media queries */
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 600px) {
   .main {
     width: 100%;
   }
@@ -151,5 +122,9 @@ ul {
   }
   .main {
     box-shadow: none;
+  }
+  .pokemon-list {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }

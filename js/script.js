@@ -21,7 +21,7 @@ let pokemonRepository = (function() {
     //Creates buttons for each pokemon
     let list = $('.pokemon-list');
     let listItem = $('<li></li>');
-    let button = $('<button type="button" class="btn-light primary-button" data-toggle="modal" data-target="#exampleModal">' + pokemon.name + '</button>');
+    let button = $('<button type="button" class="btn-light main-button" data-toggle="modal" data-target="#exampleModal">' + pokemon.name + '</button>');
     listItem.addClass('group-list-item');
     listItem.append(button);
     list.append(listItem);
@@ -32,16 +32,15 @@ let pokemonRepository = (function() {
   };
   //Functions for loading message
   function loadMessage() {
-    let message = document.querySelector('#message');
-    let loadMessage = document.createElement('p');
-    loadMessage.innerText = 'Information loading...'
+    let message = $('#message');
+    let loadMessage = $('<p>Information loading...</p>');
 
-    message.appendChild(loadMessage);
+    message.append(loadMessage);
   }
 
   function removeMessage() {
-    let message = document.querySelector('#message');
-    message.classList.add('remove');
+    let message = $('#message');
+    message.addClass('remove');
   }
   //Fetch and compile list of pokemon
   function loadList() {
@@ -91,13 +90,6 @@ let pokemonRepository = (function() {
       let modalContainer = $('#modal-container');
       modalContainer.addClass('is-visible');
 
-      modalContainer.click(function(e) {
-        let target = e.target;
-        if (target === modalContainer) {
-          hideModal();
-        }
-      });
-
       modalTitle.empty();
       modalBody.empty();
 
@@ -116,11 +108,6 @@ let pokemonRepository = (function() {
       modalBody.append(pokemonType);
     })
   };
-  //Function to hide modal
-  function hideModal() {
-    let modalContainer = $('#modal-container');
-    modalContainer.removeClass('is-visible');
-  };
   //Function returns
   return {
     add: add,
@@ -128,8 +115,7 @@ let pokemonRepository = (function() {
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showModal: showModal,
-    hideModal: hideModal
+    showModal: showModal
   };
 })();
 
