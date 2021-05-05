@@ -1,3 +1,5 @@
+/* eslint-env jquery */
+/* eslint-disable no-console */
 //Provides array of pokemon
 let pokemonRepository = (function() {
   let pokemonList = [];
@@ -10,12 +12,12 @@ let pokemonRepository = (function() {
     pokemonList.push(pokemon);
   } else {
       console.log('error')
-  }};
+  }}
 
   //Returns list of pokemon
   function getAll() {
     return pokemonList;
-  };
+  }
 
   function addListItem(pokemon) {
     //Creates buttons for each pokemon
@@ -29,7 +31,7 @@ let pokemonRepository = (function() {
     $(button).click(function() {
       showModal(pokemon);
     });
-  };
+  }
   //Functions for loading message
   function loadMessage() {
     let message = $('#message');
@@ -55,13 +57,11 @@ let pokemonRepository = (function() {
           detailsUrl: item.url
         };
         add(pokemon);
-        console.log(pokemon);
       });
     }).catch(function (e) {
       console.error(e);
     })
-  };
-
+  }
   //Gets details from each pokemon url
   function loadDetails(item) {
     loadMessage();
@@ -80,7 +80,7 @@ let pokemonRepository = (function() {
     }).catch(function (e) {
       console.error(e);
     })
-  };
+  }
   //Generates pokemon details in modal
   function showModal(item) {
     loadDetails(item).then(function() {
@@ -106,7 +106,7 @@ let pokemonRepository = (function() {
       modalBody.append(pokemonHeight);
       modalBody.append(pokemonType);
     })
-  };
+  }
   //Function returns
   return {
     add: add,
