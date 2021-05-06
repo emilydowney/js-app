@@ -71,7 +71,7 @@ let pokemonRepository = (function() {
     }).then(function (details) {
       removeMessage();
       item.id = details.id;
-      item.imageUrl = details.sprites.front_default;
+      item.imageUrl = details.sprites.other['official-artwork'].front_default;
       item.height = details.height;
       item.types = details.types[0].type.name;
       if (details.types.length === 2) {
@@ -85,28 +85,42 @@ let pokemonRepository = (function() {
   function showModal(item) {
     loadDetails(item).then(function() {
       let modalBody = $('.modal-body');
+      let modalBodyInfo = $('.modal-bodyinfo');
       let modalTitle = $('.modal-title');
       let modalContainer = $('#modal-container');
       modalContainer.addClass('is-visible');
 
       modalTitle.empty();
       modalBody.empty();
+      modalBodyInfo.empty();
 
       let pokemonName = $('<h2>' + item.name + '</h2>');
       let pokemonId = $('<p>#' + item.id + '</p>');
+      pokemonId.addClass('id');
       let pokemonImage = $('<img class="modal-img" style="width: 50%">');
       pokemonImage.attr('src', item.imageUrl);
-      let pokemonHeight = $('<p>' + 'Height: ' + item.height + '</p>');
-      let pokemonType = $('<p>Type: ' + item.types + item.secondType + '</p>');
+      let pokemonHeight = $('<p>' + '<h7>Height</h7>: ' + item.height + '</p>');
+      let pokemonType = $('<p><h7>Type</h7>: ' + item.types + item.secondType + '</p>');
 
-
+      modalTitle.append(pokemonId);
       modalTitle.append(pokemonName);
       modalBody.append(pokemonImage);
-      modalBody.append(pokemonId);
-      modalBody.append(pokemonHeight);
-      modalBody.append(pokemonType);
+      modalBodyInfo.append(pokemonHeight);
+      modalBodyInfo.append(pokemonType);
     })
   }
+
+  function pokemonSearch() {
+      $(document).ready(function() {
+        $('#search').on('keyup', function() {
+          let value = $(this).val().toUpperCase();
+          $('.pokemon-list').filter(function() {
+            $(this).toggle($(this).text().toUpperCase().indexOf(value) > -1)
+          });
+        });
+      });
+    }
+
   //Function returns
   return {
     add: add,
@@ -114,7 +128,8 @@ let pokemonRepository = (function() {
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showModal: showModal
+    showModal: showModal,
+    pokemonSearch: pokemonSearch
   };
 })();
 

@@ -4,15 +4,15 @@ Press Start 2P
 Quicksand
 
 Colors:
-Background (grey): #33363a
-Content (red): #d60909
+Background (grey): #343a40
+Content (red): #c82333
 White: #fff
 Black: #000;
 */
 
 :root {
   --primary_color: #343a40;
-  --secondary_color: #d60909;
+  --secondary_color: #c82333;
   --white: #fff;
   --black: #000;
 }
@@ -25,14 +25,36 @@ body {
   background-color: var(--primary_color);
   color: var(--white);
   font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
 }
 
 /* Header content */
+.id {
+  font-size: 18px;
+  margin: 0;
+  text-align: left;
+}
+
+.modal-header {
+  display: inline-block;
+  background: var(--secondary_color);
+  color: var(--white);
+}
+
+.modal-header .close {
+  padding: 0;
+  margin: 0;
+  float: right;
+  color: var(--white);
+}
+
+
 .title {
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
+  font-weight: 700;
   z-index: 1;
   margin: 10px 0;
 }
@@ -48,14 +70,20 @@ h1 {
 
 h2 {
   text-transform: capitalize;
+  font-weight: 700;
 }
+
+h7 {
+  text-decoration: underline;
+}
+
 
 /* Main body content */
 .main {
   position: relative;
   display: block;
   margin: 0 auto;
-  width: 600px;
+  width: 80%;
   text-align: center;
   background-color: var(--white);
   color: var(--black);
@@ -66,7 +94,12 @@ h2 {
 
 .pokemon-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+button.btn-light.main-button {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
 }
 
 #message {
@@ -112,11 +145,29 @@ ul {
   display: none;
 }
 
-/* Media queries */
+.modal-bodyinfo {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  padding: 0 40px;
+}
 
-@media all and (max-width: 600px) {
+/* Media queries */
+@media all and (max-width: 800px){
   .main {
-    width: 100%;
+    width: 80%;
+  }
+  .pokemon-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 500px){
+  .main {
+    width: 90%;
+  }
+  .pokemon-list {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -126,9 +177,9 @@ ul {
   }
   .main {
     box-shadow: none;
+    width: 100%;
   }
   .pokemon-list {
-    display: grid;
     grid-template-columns: 1fr;
   }
 }
