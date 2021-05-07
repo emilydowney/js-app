@@ -145,11 +145,19 @@ ul {
   display: none;
 }
 
+.modal-body {
+  float: left;
+}
+
 .modal-bodyinfo {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
   text-align: left;
-  padding: 0 40px;
+  padding: 0 60px;
+}
+
+.modal-bodyinfo img {
+  float: left;
 }
 
 /* Media queries */
