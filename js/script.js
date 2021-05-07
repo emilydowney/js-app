@@ -71,6 +71,8 @@ let pokemonRepository = (function() {
       item.imageUrl = details.sprites.other['official-artwork'].front_default;
       item.height = details.height;
       item.weight = details.weight;
+      item.ability = details.abilities[0].ability.name;
+      item.secondAbility = details.abilities[1].ability.name;
       item.types = details.types[0].type.name;
       if (details.types.length === 2) {
         item.secondType = ', ' + details.types[1].type.name;
@@ -98,8 +100,13 @@ let pokemonRepository = (function() {
       let pokemonImage = $('<img class="modal-img" style="width: 50%">');
       pokemonImage.attr('src', item.imageUrl);
       let pokemonHeight = $('<p>' + '<h7>Height</h7>: ' + item.height + ' dm</p>');
+      pokemonHeight.addClass('details');
       let pokemonWeight = $('<p>' + '<h7>Weight</h7>: ' + item.weight + ' hg</p>');
+      pokemonWeight.addClass('details');
       let pokemonType = $('<p><h7>Type</h7>: ' + item.types + item.secondType + '</p>');
+      pokemonType.addClass('details');
+      let pokemonAbility = $('<p><h7>Abilities</h7>: ' + item.ability + ', ' + item.secondAbility + '</p>')
+      pokemonAbility.addClass('details');
 
       modalTitle.append(pokemonId);
       modalTitle.append(pokemonName);
@@ -107,6 +114,7 @@ let pokemonRepository = (function() {
       modalBodyInfo.append(pokemonHeight);
       modalBodyInfo.append(pokemonWeight);
       modalBodyInfo.append(pokemonType);
+      modalBodyInfo.append(pokemonAbility);
     })
   }
   //Function to search for pokemon
