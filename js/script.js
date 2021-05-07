@@ -13,14 +13,12 @@ let pokemonRepository = (function() {
   } else {
       console.log('error')
   }}
-
   //Returns list of pokemon
   function getAll() {
     return pokemonList;
   }
-
+  //Creates buttons for each pokemon
   function addListItem(pokemon) {
-    //Creates buttons for each pokemon
     let list = $('.pokemon-list');
     let listItem = $('<li></li>');
     let button = $('<button type="button" class="btn-light main-button" data-toggle="modal" data-target="#exampleModal">' + pokemon.name + '</button>');
@@ -36,7 +34,6 @@ let pokemonRepository = (function() {
   function loadMessage() {
     let message = $('#message');
     let loadMessage = $('<p>Information loading...</p>');
-
     message.append(loadMessage);
   }
 
@@ -100,8 +97,8 @@ let pokemonRepository = (function() {
       pokemonId.addClass('id');
       let pokemonImage = $('<img class="modal-img" style="width: 50%">');
       pokemonImage.attr('src', item.imageUrl);
-      let pokemonHeight = $('<p>' + '<h7>Height</h7>: ' + item.height + '</p>');
-      let pokemonWeight = $('<p>' + '<h7>Weight</h7>: ' + item.weight + '</p>');
+      let pokemonHeight = $('<p>' + '<h7>Height</h7>: ' + item.height + ' dm</p>');
+      let pokemonWeight = $('<p>' + '<h7>Weight</h7>: ' + item.weight + ' hg</p>');
       let pokemonType = $('<p><h7>Type</h7>: ' + item.types + item.secondType + '</p>');
 
       modalTitle.append(pokemonId);
@@ -112,17 +109,15 @@ let pokemonRepository = (function() {
       modalBodyInfo.append(pokemonType);
     })
   }
-
-      $(document).ready(function() {
-        $('#search').on('keyup', function() {
-          let value = $(this).val().toLowerCase();
-          $('.pokemon-list *').filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-          });
-        });
+  //Function to search for pokemon
+  $(document).ready(function() {
+    $('#search').on('keyup', function() {
+      let value = $(this).val().toLowerCase();
+      $('.pokemon-list *').filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
-
-
+    });
+  });
   //Function returns
   return {
     add: add,

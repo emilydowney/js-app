@@ -63,9 +63,14 @@ body {
   color: inherit;
 }
 
+#navbarText {
+  justify-content: flex-end;
+}
+
 h1 {
-  font-family: 'Press Start 2P', sans-serif;
-  font-size: 36px;
+  font-family: 'Carter One', sans-serif;
+  font-size: 80px;
+  text-shadow: 8px 5px 0px #000, 15px 7px 0px #c82333;
 }
 
 h2 {
@@ -165,6 +170,9 @@ ul {
   .main {
     width: 80%;
   }
+  h1 {
+    font-size: 60px;
+  }
   .pokemon-list {
     grid-template-columns: 1fr 1fr;
   }
@@ -181,7 +189,7 @@ ul {
 
 @media all and (max-width: 400px){
   h1 {
-    font-size: 28px;
+    font-size: 50px;
   }
   .main {
     box-shadow: none;
