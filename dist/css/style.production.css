@@ -1,6 +1,13 @@
 /*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+/*
 Fonts:
-Press Start 2P
+Carter One
 Quicksand
 
 Colors:
@@ -18,7 +25,8 @@ Black: #000;
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -63,7 +71,9 @@ h7 {
 }
 
 #navbarText {
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .navbar {
@@ -72,10 +82,16 @@ h7 {
 }
 
 .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: 700;
   z-index: 1;
   padding-top: 10px;
@@ -92,7 +108,8 @@ h7 {
   background-color: var(--white);
   color: var(--black);
   border: 2px solid var(--black);
-  box-shadow: 10px 10px var(--secondary_color);
+  -webkit-box-shadow: 10px 10px var(--secondary_color);
+          box-shadow: 10px 10px var(--secondary_color);
   font-size: 20px;
 }
 
@@ -105,7 +122,9 @@ h7 {
 }
 
 .pokemon-list {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -156,7 +175,9 @@ button.btn-light.main-button {
 }
 
 .modal-bodyinfo {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
   text-align: left;
   padding: 0 60px;
@@ -181,6 +202,7 @@ button.btn-light.main-button {
     font-size: 60px;
   }
   .pokemon-list {
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -190,6 +212,7 @@ button.btn-light.main-button {
     width: 90%;
   }
   .pokemon-list {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
 }
@@ -199,10 +222,12 @@ button.btn-light.main-button {
     font-size: 50px;
   }
   .main {
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     width: 100%;
   }
   .pokemon-list {
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
 }
