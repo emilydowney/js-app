@@ -72,7 +72,9 @@ let pokemonRepository = (function() {
       item.height = details.height;
       item.weight = details.weight;
       item.ability = details.abilities[0].ability.name;
-      item.secondAbility = details.abilities[1].ability.name;
+      if (details.abilities.length === 2) {
+        item.secondAbility =  ', ' + details.abilities[1].ability.name;
+      } else item.secondAbility = '';
       item.types = details.types[0].type.name;
       if (details.types.length === 2) {
         item.secondType = ', ' + details.types[1].type.name;
@@ -105,7 +107,7 @@ let pokemonRepository = (function() {
       pokemonWeight.addClass('details');
       let pokemonType = $('<p><h7>Type</h7>: ' + item.types + item.secondType + '</p>');
       pokemonType.addClass('details');
-      let pokemonAbility = $('<p><h7>Abilities</h7>: ' + item.ability + ', ' + item.secondAbility + '</p>')
+      let pokemonAbility = $('<p><h7>Abilities</h7>: ' + item.ability + item.secondAbility + '</p>')
       pokemonAbility.addClass('details');
 
       modalTitle.append(pokemonId);
