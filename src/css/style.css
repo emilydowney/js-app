@@ -114,7 +114,7 @@ button.btn-light.main-button {
   font-weight: 600;
 }
 
-.main-button, .main-button:visited {
+.unselect, .main-button, .main-button:visited, .main-button:focus {
   background: var(--white);
   font-family: 'Quicksand', sans-serif;
   font-size: 20px;
@@ -122,9 +122,11 @@ button.btn-light.main-button {
   width: 100%;
   padding: 8px 0;
   border: none;
+  outline: none;
+  box-shadow: none;
 }
 
-.main-button:focus, .main-button:hover, .main-button:active {
+.main-button:hover {
   background: var(--secondary_color);
   color: var(--white);
   cursor: pointer;
